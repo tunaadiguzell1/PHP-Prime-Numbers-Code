@@ -1,0 +1,27 @@
+
+<?php
+function isPrime($number) {
+    if ($number <= 1) {
+        return false;
+    }
+    for ($i = 2; $i <= sqrt($number); $i++) {
+        if ($number % $i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function findThreeDigitPrimesStartingWith5() {
+    $primes = [];
+    for ($i = 500; $i <= 599; $i++) {
+        if (isPrime($i)) {
+            $primes[] = $i;
+        }
+    }
+    return $primes;
+}
+
+$primeNumbers = findThreeDigitPrimesStartingWith5();
+echo "Three-digit prime numbers starting with 5: " . implode(", ", $primeNumbers) . "\\n";
+?>
